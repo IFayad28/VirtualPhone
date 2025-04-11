@@ -335,6 +335,126 @@ body {
   color: rgb(0, 179, 179);
 }
 
-.addContactModal {
+.modal-overlay {
+  position: absolute;
+  background-color: transparent;
+  width: 300px;
+  height: 600px;
+  left: 0;
+  bottom: 0px;
+  display: flex;
+  justify-content: center;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  backdrop-filter: blur(20px);
+}
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  margin-left: 10px;
+  margin-top: 50px;
+}
+.aContact {
+  position: absolute;
+  top: 20px;
+  left: 15px;
+}
+
+.modal input {
   position: relative;
+  width: 250px;
+  top: 40px;
+  left: 0px;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  background-color: white;
+  color: black;
+}
+.closeModal {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: blue;
+  border: none;
+  outline: none;
+  width: 150px;
+  padding: 10px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}
+
+.closeModal:hover {
+  cursor: pointer;
+  background-color: rgb(54, 63, 226);
+}
+
+.acSubmit {
+  position: relative;
+  bottom: -100px;
+  background-color: rgb(31, 234, 31);
+  border: 1px solid black;
+  outline: none;
+  padding: 10px;
+  color: black;
+  border-radius: 20px;
+  left: 50%;
+  transform: translateX(-55%);
+  width: 200px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  -webkit-transform: translateX(-55%);
+  -moz-transform: translateX(-55%);
+  -ms-transform: translateX(-55%);
+  -o-transform: translateX(-55%);
+}
+
+.acSubmit:hover {
+  cursor: pointer;
+  background-color: greenyellow;
+}
+
+.deleteContact {
+  position: relative;
+  left: 158px;
+  bottom: 30px;
+  border-radius: 20%;
+  -webkit-border-radius: 20%;
+  -moz-border-radius: 20%;
+  -ms-border-radius: 20%;
+  -o-border-radius: 20%;
+  background-color: transparent;
+  color: blue;
+  border: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+}
+.deleteContact:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.deleteContact:active {
+  color: rgb(0, 179, 179);
 }

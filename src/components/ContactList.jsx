@@ -1,23 +1,21 @@
-import { useState, useEffect } from 'react';
-
-const ContactList = () => {
-  const [contacts, setContacts] = useState([]);
-  useEffect(() => {
-    const fetchContacts = async () => {
-      try {
-        const response = await fetch('http://localhost:8000/contactInfo');
-        if (!response.ok) {
-          throw new Error('Failed to get Contact Info');
-        }
-        const data = await response.json();
-        console.log(data);
-        setContacts(data);
-      } catch {
-        console.log('Error');
-      }
-    };
-    fetchContacts();
-  }, []);
+const ContactList = ({
+  contacts = [],
+  setContacts,
+  setSelectedContact,
+  setIsModalOpen,
+}) => {
+  const deleteContact = async (id) => {
+    try {
+      const res = await fetch(`http://localhost:8000/deleteContact/${id}`, {
+        method: 'DELETE',
+      });
+      const data = await res.json();
+      console.log(data.message);
+      setContacts((prev) => prev.filter((c) => c.id !== id));
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <>
       {contacts.map((contact) => (
@@ -25,7 +23,21 @@ const ContactList = () => {
           {contact.first_name} {contact.last_name}
           <div>{contact.email}</div>
           <div>{contact.phone_number}</div>
-          <button className="editBtn">Edit</button>
+          <button
+            className="editBtn"
+            onClick={() => {
+              setSelectedContact(contact);
+              setIsModalOpen(true);
+            }}
+          >
+            Edit
+          </button>
+          <button
+            className="deleteContact"
+            onClick={() => deleteContact(contact.id)}
+          >
+            Delete
+          </button>
         </li>
       ))}
     </>
